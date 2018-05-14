@@ -23,7 +23,7 @@ config :phx_in_place_demo, PhxInPlaceDemoWeb.Endpoint,
 config :phx_in_place_demo, PhxInPlaceDemo.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
-  String.to_integer(System.get_env("POOL_SIZE") || "15"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "15"),
   ssl: true
 
 # Do not print debug messages in production
