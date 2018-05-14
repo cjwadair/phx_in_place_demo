@@ -1,0 +1,28 @@
+<h2>Listing Suppliers</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for supplier <- @suppliers do %>
+    <tr>
+      <td><%= supplier.name %></td>
+      <td><%= supplier.country %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: supplier_path(@conn, :show, supplier), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: supplier_path(@conn, :edit, supplier), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: supplier_path(@conn, :delete, supplier), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Supplier", to: supplier_path(@conn, :new) %></span>

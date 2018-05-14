@@ -1,0 +1,5 @@
+<h2>Edit Supplier</h2>
+
+<%= render "form.html", Map.put(assigns, :action, supplier_path(@conn, :update, @supplier)) %>
+
+<span><%= link "Back", to: supplier_path(@conn, :index) %></span>

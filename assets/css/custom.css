@@ -1,0 +1,62 @@
+.container {
+  width: 95%;
+  max-width: 1440px;
+  padding: 0;
+}
+
+main {
+  position: relative;
+}
+
+#error-message-container {
+  position: absolute;
+  right: 0%;
+  top: 40px;
+  width: 40%;
+  max-width: 576px;
+  opacity: 0;
+}
+
+.pricing_row.updated{
+  color: inherit;
+  animation-name: colour;
+  animation-duration: 2s;
+}
+
+/* The animation code */
+@keyframes colour {
+    0% {color: red;}
+    50% {color: red;}
+    100% {color: black;}
+}
+
+.pip-input {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 6px 12px;
+  /* width: 100%; */
+  text-align: right;
+}
+
+.table>thead>tr>th {
+  border: none;
+}
+
+.table>tbody, .table>tbody+tbody, .table>tbody>tr>td:first-child {
+  border: none;
+}
+
+.table>tbody>tr>td, .table>thead>tr>th {
+  vertical-align: middle;
+  text-align: right;
+}
+
+.table>thead>tr>th {
+  vertical-align: bottom;
+}
+
+.table>tbody>tr>td.supplier-name-field {
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

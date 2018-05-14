@@ -1,0 +1,23 @@
+<h2>Show Supplier</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @supplier.name %>
+  </li>
+
+  <li>
+    <strong>Country:</strong>
+    <%= @supplier.country %>
+  </li>
+
+  <li>
+    <strong>Exchange Rate:</strong>
+    <%= @supplier.exchange_rate %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: supplier_path(@conn, :edit, @supplier) %></span>
+<span><%= link "Back", to: supplier_path(@conn, :index) %></span>

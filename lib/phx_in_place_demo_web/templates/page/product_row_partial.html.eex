@@ -1,0 +1,12 @@
+<tr class="pricing_row" id="product_<%= @product.id%>" data-id="<%= @product.id %>">
+  <td></td>
+  <td><%= @product.name %></td>
+  <td><%= phx_in_place @product, :sku, size: "10" %></td>
+  <td><%= phx_in_place @product, :fob_foreign, display_as: :number_to_currency, size: "10" %></td>
+  <td><%= phx_in_place @product, :exchange_rate, size: "10" %></td>
+  <td><%= Number.Currency.number_to_currency(cost_domestic(@product)) %></td>
+  <td><%= phx_in_place @product, :units_per_case, size: "10" %></td>
+  <td><%= Number.Currency.number_to_currency(unit_cost(@product)) %></td>
+  <td><%= Number.Currency.number_to_currency(retail_price(@product)) %></td>
+  <td><%= Number.Percentage.number_to_percentage(margin(@product) * 100) %></td>
+</tr>
