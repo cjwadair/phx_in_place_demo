@@ -15,7 +15,7 @@ defmodule PhxInPlaceDemoWeb.PipChannel do
           IO.puts "Error getting Product:"
           {:reply, {:error, %{reason: "response was nil"}}, socket}
         product ->
-          html = return_row_data({:ok, product}, "product_row_partial.html", socket_ref(socket))
+          html = return_row_data({:ok, product}, "product_row_partial.html", socket)
           {:reply, {:ok, %{product_id: product.id, html: html}}, socket}
     end
   end

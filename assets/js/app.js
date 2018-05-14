@@ -30,9 +30,9 @@ channel.join()
   })
   .receive("error", resp => { console.log("Unable to join", resp) });
 
-  // document.addEventListener('pip:update:success', function (e) {
-  //      push_row_update(e.target);
-  //  }, false);
+  document.addEventListener('pip:update:success', function (e) {
+       push_row_update(e.target);
+   }, false);
 
   // document.addEventListener('pip:update:error', function (e) {
   //     showErrorMessage(`error:`);
@@ -42,13 +42,14 @@ channel.join()
     showErrorMessage(`error: ${response.msg}`);
   });
   //
-  channel.on("pip:update:success", response => {
-    console.log("pip:update:success received");
-    // showErrorMessage(`error: ${response.msg}`);
-  });
+  // channel.on("pip:update:success", response => {
+  //   console.log("pip:update:success received");
+  //   // showErrorMessage(`error: ${response.msg}`);
+  // });
 
    // Takes the id for the record to be updated and a rowType value that matches to the name of the partial to be updated and returns the html to be inserted into the page
   function push_row_update(target){
+    console.log('attempting row update');
     let tr = target.closest("tr")
     let id = tr.getAttribute("data-id");
     if(tr.classList.contains('updated')) {
