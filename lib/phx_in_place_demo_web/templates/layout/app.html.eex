@@ -20,8 +20,8 @@
 
       <div class="jumbotron">
         <p class="lead">Edit fields below to see PhxInPlace in action.</p>
-        <p> Updating any of the input fields below will automatically update the database and trigger either the pip:update_success or pip:update_error event, which can be used client side to trigger additional actions. In the case of the demo a flash message is displayed on error and the entire row of data is refreshed on success.</p>
-        <p>The source code for this demo app is available here <<add link here>></add> </p>
+        <p> Updating any of the input fields below will automatically update the database and trigger either the pip:update:success or the pip:update:error event, which can be used client side to trigger additional actions. In the case of the demo a flash message is displayed on error and the entire row of data is refreshed on success.</p>
+        <p>The source code for this demo app is available <a href="https://github.com/cjwadair/phx_in_place_demo">here</a></p>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
