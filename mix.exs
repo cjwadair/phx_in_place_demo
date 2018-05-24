@@ -42,7 +42,7 @@ defmodule PhxInPlaceDemo.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:number, "~> 0.5.5"},
-      {:phx_in_place, "~> 0.1.2"}
+      {:phx_in_place, "~> 0.1.3"}
       # {:phx_in_place, path: "/Users/chrisadair/projects/phoenix/phx_in_place"}
     ]
   end

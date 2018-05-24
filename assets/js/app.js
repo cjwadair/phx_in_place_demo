@@ -26,46 +26,47 @@ let channel = socket.channel("pip:demo", {})
 channel.join()
   .receive("ok", resp => {
     console.log("Joined successfully", resp);
-    pip.addListeners(channel);
   })
   .receive("error", resp => { console.log("Unable to join", resp) });
 
-  document.addEventListener('pip:update:success', function (e) {
-       push_row_update(e.target);
-   }, false);
+pip.addListeners(channel);
 
-  // document.addEventListener('pip:update:error', function (e) {
-  //     showErrorMessage(`error:`);
-  // }, false);
+document.addEventListener('pip:update:success', function (e) {
+     push_row_update(e.target);
+ }, false);
 
-  channel.on("pip:update:error", response => {
-    showErrorMessage(`error: ${response.msg}`);
-  });
-  //
-  // channel.on("pip:update:success", response => {
-  //   console.log("pip:update:success received");
-  //   // showErrorMessage(`error: ${response.msg}`);
-  // });
+document.addEventListener('pip:update:error', function (e) {
+    showErrorMessage(`unable to update field. please try again`);
+}, false);
 
-   // Takes the id for the record to be updated and a rowType value that matches to the name of the partial to be updated and returns the html to be inserted into the page
-  function push_row_update(target){
-    console.log('attempting row update');
-    let tr = target.closest("tr")
-    let id = tr.getAttribute("data-id");
-    if(tr.classList.contains('updated')) {
-      let newone = tr.cloneNode(true);
-      tr.parentNode.replaceChild(newone, tr);
-    }
-    // let rowType = target.closest("tr").className;
-    channel.push("row_update", {"row_type": "product_row", "id": id})
-    .receive("ok", resp => {
-      console.log("updateRow successful: ", resp);
-      updateRow(resp);
-    })
-    .receive("error", msg => {
-      console.warn("updateRow Error: ", msg);
-    });
+// channel.on("pip:update:error", response => {
+//   showErrorMessage(`error: ${response.msg}`);
+// });
+//
+// channel.on("pip:update:success", response => {
+//   console.log("pip:update:success received");
+//   // showErrorMessage(`error: ${response.msg}`);
+// });
+
+ // Takes the id for the record to be updated and a rowType value that matches to the name of the partial to be updated and returns the html to be inserted into the page
+function push_row_update(target){
+  console.log('attempting row update');
+  let tr = target.closest("tr")
+  let id = tr.getAttribute("data-id");
+  if(tr.classList.contains('updated')) {
+    let newone = tr.cloneNode(true);
+    tr.parentNode.replaceChild(newone, tr);
   }
+  // let rowType = target.closest("tr").className;
+  channel.push("row_update", {"row_type": "product_row", "id": id})
+  .receive("ok", resp => {
+    console.log("updateRow successful: ", resp);
+    updateRow(resp);
+  })
+  .receive("error", msg => {
+    console.warn("updateRow Error: ", msg);
+  });
+}
 
 // replaces row content with the html returned from the server
 function updateRow(payload){

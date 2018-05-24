@@ -20,10 +20,10 @@ defmodule PhxInPlaceDemoWeb.PipChannel do
     end
   end
 
-  def handle_in("pip:success", payload, socket) do
-      IO.puts "SUCCESS: #{inspect payload["target"]}"
-      {:noreply, socket}
-    end
+  # def handle_in("pip:success", payload, socket) do
+  #     IO.puts "SUCCESS: #{inspect payload["target"]}"
+  #     {:noreply, socket}
+  #   end
 
   # called from handle_in function. Returns the partial template as a string to pass back to client
   defp return_row_data(response, partialName, socket) do

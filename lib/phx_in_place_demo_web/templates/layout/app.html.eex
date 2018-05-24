@@ -14,13 +14,14 @@
   <body>
     <div class="container">
       <header class="header">
-        <a href="/"/><span class="logo"></span></a>
+        <!-- <a href="/"/><span class="logo"></span></a> -->
+        <h2 style="text-align:center;">PhxInPlace Demo Page</h2>
       </header>
 
       <div class="jumbotron">
-        <h2><%= gettext "%{name}", name: "PhxInPlace Demo Page" %></h2>
-        <p class="lead">Unobtrusive Inline Editing using Phoenix Channels</p>
-        <p>Edit fields below to see PhxInPlace in action. The source code for this demo app is available here <<add link here>></add> </p>
+        <p class="lead">Edit fields below to see PhxInPlace in action.</p>
+        <p> Updating any of the input fields below will automatically update the database and trigger either the pip:update_success or pip:update_error event, which can be used client side to trigger additional actions. In the case of the demo a flash message is displayed on error and the entire row of data is refreshed on success.</p>
+        <p>The source code for this demo app is available here <<add link here>></add> </p>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
